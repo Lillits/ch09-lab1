@@ -26,12 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#sliderBox").addEventListener('change', function (e) {
         if (e.target && e.target.nodeName == 'INPUT') {
             // retrieve the values of all the sliders and construct filter string
-            bigImage.style.filter = 'blur(' + document.querySelector('#sliderBlur').value + 'px) ' +
+            const filters = 'blur(' + document.querySelector('#sliderBlur').value + 'px) ' +
                           'brightness(' + document.querySelector('#sliderBrightness').value + '%) ' +
                           'saturate(' + document.querySelector('#sliderSaturation').value + '%) ' +
                           'hue-rotate(' + document.querySelector('#sliderHue').value + 'deg) ' +
                           'grayscale(' + document.querySelector('#sliderGray').value + '%) ' +
                           'opacity(' + document.querySelector('#sliderOpacity').value + '%) ';
+		
+	    bigImage.style.filter = filters; 
 
             refreshValueLabels();
         }
